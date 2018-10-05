@@ -53,12 +53,12 @@ function getHandler(url) {
 
 //возвращает массив статей с комментариями
 function readall(req, res, payload, cb) {
-  let result="";
+  let result= {};
   const fileContent = getJSONContent();
   let  fileContentArray = Array.from(fileContent);
 
   //======СОРТИРОВКА========
-  /*
+  
   const sortType = payload.sortOrder;
   const sortField = payload.sortField;
 
@@ -96,28 +96,39 @@ function readall(req, res, payload, cb) {
   }
 
   result = fileContentArray;
-  */
+  
 //=========СТРАНИЦЫ И  ЗАПИСИ=========
-  const page = payload.page;
-  const limit = payload.limit;
+/*
+  const page = payload.page | 13;
+  const limit = payload.limit | 1;
 
   fileContentArray.forEach((element) =>{
-    if(element.page == page){
-      result = "Title:  " + element.title + " Text: "+ element.text + " Comments:  ( ";
-      let arr = Array.from(element.comments);
-      
-        for(let  i = 0; i< limit; i++){
-          result += arr[i].text;
-          if((i+1)<limit) result += ", ";
-        }
-        result+=" ) ";
-    }
-    else result = { code: 404, message: 'Not found'};
     
-  })
+    if(element.page == page){
+      result.id = element.id;
+      result.title = element.title;
+      result.text = element.text;
+      result.date = element.date;
+      result.author = element.author;
+      result.page = element.page;
 
+      let messages = [];
+      let message = {};
+      let arr = Array.from(element.comments);
+        for(let  i = 0; i< limit; i++){
+          message.id = arr[i].text;
+          message.date = arr[i].date;
+          message.author = arr[i].author;
+
+          messages.push(message);
+        }
+        result.comments = messages;
+    }
+  })
+*/
   cb(null, result);
 }
+
 
 //===ФУНКЦИИ СРАВНЕНИЯ=====
 function comparebyId(obj1, obj2){
