@@ -1,0 +1,182 @@
+Тело запроса: {
+  "sortField": "author",
+  "sortOrder": "asc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 8 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "author",
+  "sortOrder": "asc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 10 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "author",
+  "sortOrder": "asc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 11 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "author",
+  "sortOrder": "asc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 12 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "author",
+  "sortOrder": "asc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 12 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "author",
+  "sortOrder": "asc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 13 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "author",
+  "sortOrder": "desc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 14 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "id",
+  "sortOrder": "desc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 16 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "id",
+  "sortOrder": "asc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 17 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "title",
+  "sortOrder": "asc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 17 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "title",
+  "sortOrder": "desc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 17 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "text",
+  "sortOrder": "desc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 18 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "text",
+  "sortOrder": "asc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 18 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "date",
+  "sortOrder": "asc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 18 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "date",
+  "sortOrder": "desc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 18 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "date",
+  "sortOrder": "desc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 23 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "date",
+  "sortOrder": "desc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 23 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "date",
+  "sortOrder": "desc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 24 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "date",
+  "sortOrder": "desc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 24 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "date",
+  "sortOrder": "desc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 25 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "author",
+  "sortOrder": "desc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 26 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "author",
+  "sortOrder": "desc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 27 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "author",
+  "sortOrder": "asc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 27 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "author",
+  "sortOrder": "asc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 27 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "author",
+  "sortOrder": "asc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 29 мин. 
+URL: /api/articles/readall
+Тело запроса: {
+  "sortField": "author",
+  "sortOrder": "desc"
+}
+Дата: 5.9.2018
+Время: 18 ч. 29 мин. 
+URL: /api/articles/readall

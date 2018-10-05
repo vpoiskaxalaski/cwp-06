@@ -1,0 +1,17 @@
+{
+		"id" : "",
+        "title":"economic",
+        "text":"Dolar costs more now",
+        "date":"10.09.2010",
+        "author":"Maksin Nevskiy",
+        "comments":
+                    [
+                        {
+                            "id":0,
+                            "articleId":"",
+                            "text":"shure",
+                            "date":"12.12.2016",
+                            "author":"Vitalik"
+                        }
+                        ]
+  }
