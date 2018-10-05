@@ -53,18 +53,14 @@ function getHandler(url) {
 
 //возвращает массив статей с комментариями
 function readall(req, res, payload, cb) {
-
-  if(payload==null){
-    payload = {
-      "sortField": "date",
-      "sortOrder": "desc"
-    }
-  }
-
-  const sortType = payload.sortOrder;
-  const sortField = payload.sortField;
+  let result="";
   const fileContent = getJSONContent();
   let  fileContentArray = Array.from(fileContent);
+
+  //======СОРТИРОВКА========
+  /*
+  const sortType = payload.sortOrder;
+  const sortField = payload.sortField;
 
   switch(sortField){
     case 'id' : {
@@ -92,10 +88,34 @@ function readall(req, res, payload, cb) {
       if(sortType == 'asc') fileContentArray.reverse();
       break;
     }
+    default: {
+      fileContentArray.sort(comparebyDate);
+      if(sortType == 'desc') fileContentArray.reverse();
+      break;
+    }
   }
 
-  let result = fileContentArray;
-               
+  result = fileContentArray;
+  */
+//=========СТРАНИЦЫ И  ЗАПИСИ=========
+  const page = payload.page;
+  const limit = payload.limit;
+
+  fileContentArray.forEach((element) =>{
+    if(element.page == page){
+      result = "Title:  " + element.title + " Text: "+ element.text + " Comments:  ( ";
+      let arr = Array.from(element.comments);
+      
+        for(let  i = 0; i< limit; i++){
+          result += arr[i].text;
+          if((i+1)<limit) result += ", ";
+        }
+        result+=" ) ";
+    }
+    else result = { code: 404, message: 'Not found'};
+    
+  })
+
   cb(null, result);
 }
 

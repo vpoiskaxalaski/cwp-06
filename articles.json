@@ -5,6 +5,7 @@
         "text":"Earth is round!",
         "date":"05.01.1686",
         "author":"Gaalileo Galiley",
+        "page" : 23,
         "comments":
                     [
                         {
@@ -29,6 +30,7 @@
         "text": "Friends is the best Soap!" ,
         "date": "04.10.2006",
         "author": "Ariana Grande",
+        "page" : 17,
         "comments":
                     [
                       {
@@ -45,6 +47,6 @@
                              "date":"05.06.2009",
                              "author":"Egor"
                              }
-                        ]
+                    ]
     }
 ]
