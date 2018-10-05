@@ -9,10 +9,20 @@ const handlers = {
   '/api/articles/read': read,//возвращает статью с комментариями по переданному в теле запроса id 
   '/api/articles/create': create, //создает статью с переданными в теле запроса параметрами / id генерируется на сервере / сервер возвращает созданную статью 
   '/api/articles/update': update, //обновляет статью с переданными параметрами по переданному id
-  '/api/articles/delete': deleteArticle //удаляет комментарий по переданному id
+  '/api/articles/delete': deleteArticle, //удаляет комментарий по переданному id
+  '/api/articles/logs' : logs
 };
 
-
+class Log{
+  constructor(){
+    this.date = "";
+    this.time = "";
+    this.url = "";
+    this.request = "";
+   }
+}
+let myLog = new Log();
+let logArr = [];
 
 const server = http.createServer((req, res) => {
 
@@ -41,10 +51,12 @@ server.listen(port, hostname, () => {
 
 function getHandler(url) {
   let date = new Date();
-  let log = "Дата: " + date.getDate() + "." + date.getMonth() + "." + date.getFullYear() + "\r\n";
-  log += "Время: " + date.getHours() + " ч. " + date.getMinutes() + " мин. \r\n"; 
-  log += "URL: " + url + "\r\n";
-  fs.appendFileSync("log.txt", log);
+  myLog.date = "Дата: " + date.getDate() + "." + date.getMonth() + "." + date.getFullYear();
+  myLog.time = "  Время: " + date.getHours() + " ч. " + date.getMinutes() + " мин. "; 
+  myLog.url = url;
+  
+  logArr.push(myLog);
+  writeLog();
   return handlers[url] || notFound;
 }
 
@@ -53,6 +65,7 @@ function getHandler(url) {
 
 //возвращает массив статей с комментариями
 function readall(req, res, payload, cb) {
+  
   let result= {};
   const fileContent = getJSONContent();
   let  fileContentArray = Array.from(fileContent);
@@ -61,6 +74,7 @@ function readall(req, res, payload, cb) {
   
   const sortType = payload.sortOrder;
   const sortField = payload.sortField;
+  const flag = payload.includeDeps | false;
 
   switch(sortField){
     case 'id' : {
@@ -95,6 +109,12 @@ function readall(req, res, payload, cb) {
     }
   }
 
+  if(!flag){
+    fileContentArray.forEach((element)=>{
+      element.comments = "hiden";
+    });
+  } 
+
   result = fileContentArray;
   
 //=========СТРАНИЦЫ И  ЗАПИСИ=========
@@ -125,7 +145,7 @@ function readall(req, res, payload, cb) {
         result.comments = messages;
     }
   })
-*/
+  */
   cb(null, result);
 }
 
@@ -156,7 +176,6 @@ function read(req, res, payload, cb) {
   
   let result;
   let id = payload.id;
-  let actualId = getID();
   const content = getJSONContent();
 
   (Array.from(content)).forEach(element => {
@@ -234,6 +253,22 @@ function deleteArticle(req, res, payload, cb) {
   cb(null, result);
 }
 
+
+//вывод логов сервера
+function logs(req, res, payload, cb) {
+  let result;
+
+  con = fs.readFileSync("log.json", "utf8");
+  result = JSON.parse(con);
+  
+  if(result==null){
+    result = { code: 404, message: 'Not found'};
+  }
+
+  cb(null, result);
+}
+
+
 //===================ДОП ФУНКЦИОНАЛ=================
 //считывание файло json и получение id
 function getID(){
@@ -272,9 +307,16 @@ function parseBodyJson(req, cb) {
     body = Buffer.concat(body).toString();
 
     let params = JSON.parse(body);
-    let log = "Тело запроса: " + body;
-    fs.appendFileSync("log.txt", log+ "\r\n");
+
+    myLog.request = params;
+    
     cb(null, params);
   });
+}
+
+function writeLog(){
+  
+  let toJSON = JSON.stringify(logArr);
+  fs.writeFileSync("log.json", toJSON);
 }
 
