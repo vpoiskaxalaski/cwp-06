@@ -71,10 +71,13 @@ function readall(req, res, payload, cb) {
   let  fileContentArray = Array.from(fileContent);
 
   //======СОРТИРОВКА========
-  
   const sortType = payload.sortOrder;
   const sortField = payload.sortField;
   const flag = payload.includeDeps | false;
+    //=========СТРАНИЦЫ И  ЗАПИСИ=========
+
+  const page = payload.page ;
+  const limit = payload.limit | 1;
 
   switch(sortField){
     case 'id' : {
@@ -115,13 +118,6 @@ function readall(req, res, payload, cb) {
     });
   } 
 
-  result = fileContentArray;
-  
-//=========СТРАНИЦЫ И  ЗАПИСИ=========
-/*
-  const page = payload.page | 13;
-  const limit = payload.limit | 1;
-
   fileContentArray.forEach((element) =>{
     
     if(element.page == page){
@@ -135,17 +131,20 @@ function readall(req, res, payload, cb) {
       let messages = [];
       let message = {};
       let arr = Array.from(element.comments);
-        for(let  i = 0; i< limit; i++){
-          message.id = arr[i].text;
+      let i =0;
+      
+        while(i< limit && i<arr.length){
+          message.id = arr[i].id;
           message.date = arr[i].date;
           message.author = arr[i].author;
-
           messages.push(message);
+          i++;
         }
         result.comments = messages;
     }
   })
-  */
+  
+  
   cb(null, result);
 }
 
